@@ -1,0 +1,169 @@
+<html>
+
+<head>
+<title>currency convtor</title>
+ <link href="style2.css" rel="stylesheet"/> 
+
+<img src="currencyimg.jpeg" alt="" align="right" width="30%" height="30%"/>
+
+</head>
+<body>
+
+
+	 
+	 
+	  
+	       <title>Currency Convertor</title>
+		   <script>
+              function convert()
+			  {
+			     var amtobj=document.getElementById('amtid');
+				 //alert(amtobj);
+			     amt=amtobj.value;
+				 //alert(amt);
+				 var frmobj=document.getElementById('frmid');
+				 frm=frmobj.value;
+				 //alert(frm);
+				 var to_obj=document.getElementById('toid');
+				 to=to_obj.value;
+				 //alert(to);
+				 var h1obj=document.getElementById('one');
+				 //alert(h1obj);
+				 //x=h1obj.innerHTML;
+				 //alert(x);
+				 //result=5000;
+				 var resobj=document.getElementById('result');
+				 //resobj.innerHTML=result;
+				 
+				 //calculation
+				 apilink="https://api.exchangerate-api.com/v4/latest/"+frm
+				 //document.write(apilink);
+				 /*var res=fetch(apilink);
+				 document.write(res);
+				 console.log(res);*/
+				 
+				 fetch(apilink).then(
+				 
+				    function(res)
+					{
+					//console.log(res.json());
+					  return res.json();//retuen json
+					}
+				 ).then(
+				  
+				  function(json)
+				  {
+				    
+					//console.log(json);
+				    //console.log(json.rates);
+					dict=json.rates;
+					
+					//console.log(dict['AWG']);
+					cr=dict[to];
+					//console.log(cr);
+					res=cr*amt;
+					//alert(res);
+					resobj.innerHTML=res;
+				  }
+				 
+				 );
+				 
+			  }
+		   </script>
+	 </head>
+	 
+	 <body>
+	     <h1 align="center" id="one">Currency Convertor</h1>
+		 <br>
+	     <table border="1" align="center">
+		  <tr>
+		     <td><strong>Amount:</strong></td>
+			 <td><input type="number" name="amt" id="amtid"/></td>
+		  </tr>
+		  
+		  <tr>
+		    <td><strong>From:</strong></td>
+			<td>
+			  <select name="from" id="frmid">
+			   <option value="INR" >INDIA</option>
+			   <option value="USD" >United States dollar</option>
+			   <option value="AED">Emirati Dirham</option>
+			   <option value="AFN">Afghanistan</option>
+			   <option value="ALL">Albania Lek</option>
+			   <option value="AOG">Angola Kwanza</option>
+			   <option value="AWG">Aruba Florin</option>
+			   <option value="AZN">Azerbaijan New Manat</option>
+			   <option value="BAM">Bosnia Mark</option>
+			   <option value="BBD" >Barbados Dollar</option>
+			   <option value="BDT" >Bangladesh Taka</option>
+			   <option value="BGN" >Bulgaria Lev</option>
+			   <option value="BHD" >Bahrain Dinar</option>
+			   <option value="BND" >Brunei Dollar</option>
+			   <option value="BOB" >Bolivia Boliviano</option>
+			   <option value="CAD" >Canada Dollar</option>
+			   <option value="CDF" >Congo Franc</option>
+			   <option value="CLP">Chili Peso</option>
+			   <option value="CNY" >China Yuan</option>
+			   <option value="COP" >Colombia Peso</option>
+			   <option value="CRC" >Costa Rica Colon</option>
+			   <option value="CUP" >Cuba Peso</option>
+			   <option value="EUR" >EURO</option>
+			   
+			   
+			   
+			   
+				 
+			   
+			   
+			  </select>
+			</td>
+		  </tr>
+		  
+		  <tr>
+		    <td><strong>To:</strong></td>
+			<td>
+			  <select name="to" id="toid">
+			   <option value="INR" >INR</option>
+			   <option value="USD" >USD</option>
+			    
+			   <option value="AED" >AED</option>
+			   <option value= "AFN">AFN</option>
+			   <option value="ALL">ALL</option>
+			   <option value="AOG">AOG</option>
+			   <option value="AWG">AWG</option>
+			   <option value="AZN">AZN</option>
+			   <option value="BAM">BAM</option>
+			   <option value="BBD">BBD</option>
+			   <option value="BDT" >BDT</option>
+			   <option value="BGN">BGN</option>
+			   <option value="BHD">BHD</option>
+			   <option value="BND">BND</option>
+			   <option value="BOB">BOB</option>
+			   <option value="CAD" >CAD</option>
+			   <option value="CDF">CDF</option>
+			   <option value="CLP" >CLP</option>
+			   <option value="CNY" >CNY</option>
+			   <option value="COP" >COP</option>
+			   
+			   <option value="CRC" >CRC</option>
+			   
+			   <option value="CUP">CUP</option>
+			   
+			   <option value="EUR" >EUR</option>
+			   
+			   
+			  </select>
+			</td>
+		  </tr>
+		  
+		  <tr>
+		     <td colspan="2" align="center"><button id="btn" onclick="convert()"><strong>Convert</strong></button></td>
+		  </tr>
+		  
+		  
+		 </table>
+		 <div id="result"></div>
+	 </body>
+
+
+</html>

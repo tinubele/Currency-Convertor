@@ -1,0 +1,34 @@
+Accessing HTML elements/Form elements 
+values in javascript
+========================================
+step1:To access any element value create
+      object of that element in 
+	  javascript code.
+	  
+	  How to create element object?
+	  syntax:
+	  document.getElementById('idname');
+	  
+	  var amtobj=document.getElementById('amtid');
+	  alert(amtobj);
+From : USD
+TO   : INR
+
+From : BASE
+
+1   USD  ===> 82.5 INR 
+200 USD  ===> X INR 
+
+X x 1  = 200 x 82.5
+X      = 200 x 82.5
+
+
+FROM: INR 
+TO  : USD
+BASE:INR
+
+From javascript there is need to give GET request to server which
+has conversion data.
+
+fetch() function is used to provide request to that server from  
+javascript
